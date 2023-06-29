@@ -1,0 +1,12 @@
+*.pyc
+*.csv
+.ipynb_checkpoints*
+*.npy
+weights/*
+slurm_scripts/*
+Untitled*.ipynb
+arima.ipynb
+ETTm2.ipynb
+autoformer_192.ipynb
+*.pdf
+.DS_Store
