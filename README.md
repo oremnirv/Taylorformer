@@ -6,12 +6,35 @@ Our model architecture is shown below:
 
 
 ## Requirements
+1. Clone Repository
 
-To install requirements:
+2. Start a new enviornment
+
+```
+python -m venv taylorformer
+source taylorformer/bin/activate
+```
+
+3. Install requirements:
 
 ```setup
 pip install -r requirements.txt
 ```
+4. Check tensorflow was installed
+
+```
+pip list | grep tensorflow
+```
+If nothing appears, run:
+```
+pip install tensorflow==2.13.1
+```
+And verify 
+```
+python -c "import tensorflow as tf; print(tf.__version__)"
+```
+
+
 ## Training and Evaluation
 
 ### Training
@@ -19,15 +42,18 @@ pip install -r requirements.txt
 To train the model(s) in the paper, run this command:
 
 ```train
-python training_and_evaluation.py "<type of dataset>" "<model>" num_iterations num_repeat_runs n_C n_T 0
+python training_and_evaluating_models.py "<type of dataset>" "<model>" num_iterations num_repeat_runs n_C n_T 0
 ```
 where <type of dataset> is for example ETT or exchange, <model> is for example, TNP or taylorformer, where n_C and n_T are the number of context and target points, respectively.
-  
-You will have needed to create appropriate folders to store the model weights and evaluation metrics. We have included a folder for the taylorformer on the ETT dataset, with n_T = 96, as an example. Its path is `weights_/forecasting/ETT/taylorformer/96`.
+
+For example, 
+```
+python training_and_evaluating_models.py "ETT" "taylorformer" 10 1 192 96 0
+```
 
 ### Evaluation 
 
-Evaluation metrics (mse and log-likelihood) for each of the repeat runs are saved in the corresponding folder e.g. `weights_/forecasting/ETT/taylorformer/96`. The mean and standard deviations are used when reporting the results.
+Evaluation metrics (mse and log-likelihood) for each of the repeat runs are saved in the corresponding folder e.g. `weights/forecasting/ETT/taylorformer/96`. The mean and standard deviations are used when reporting the results.
   
 ### Load pre-trained model 
 
