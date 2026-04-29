@@ -1,0 +1,13 @@
+*.pyc
+.ipynb_checkpoints*
+*.npy
+slurm_scripts/*
+Untitled*.ipynb
+arima.ipynb
+ETTm2.ipynb
+autoformer_192.ipynb
+*.pdf
+.DS_Store
+taylorformer/
+__pycache__/
+*.pyc
